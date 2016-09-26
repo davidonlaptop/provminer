@@ -5,10 +5,14 @@ A collection of scripts to manage experimentation provenance
 Use this utility to extract the file metadata from your experiments. You can pass as many directory as needed.
 
 ```bash
-./fileminer.sh path1 [,path2 [,path3 [,...]]]
+sudo ./fileminer.sh path1 [,path2 [,path3 [,...]]]
 ```
 
 eg:
 ```bash
-./fileminer.sh $HOME /etc
+sudo ./fileminer.sh $HOME /etc
 ```
+
+IMPORTANT: use sudo to make sure the script has the proper permissions to scan the directory.
+
+NOTE: You need approximately 200 MB of free space to scan 1 million files.
