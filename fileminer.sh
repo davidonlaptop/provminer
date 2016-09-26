@@ -60,20 +60,11 @@ if [ -s $ERRFILE ]; then
 	log "*** WARNING. Some **ERRORS** occured. See $ERRFILE for more details"
 fi
 
-# TODO: run as sudo
-
-
-# Example output:
-#lrwxrwxrwx     	15     	root   	root   	0      	1474920411     	'/dev/stdout' -> '/proc/self/fd/1'
-#crw-rw-rw-     	0      	root   	root   	0      	1474920411     	'/dev/tty'
-#drwxr-xr-x     	4284   	UNKNOWN	staff  	0      	1474920640     	'/home'
-#-rw-r--r--     	0      	root   	root   	0      	1474921197     	'emptyfile'
-#drwxr-xr-x     	4096   	root   	root   	0      	1474921188     	'mydir'
-#-rw-r--r--     	6      	root   	root   	0      	1474921170     	'myfile'
-#lrwxrwxrwx     	6      	root   	root   	0      	1474921210     	'mylink' -> 'myfile'
-#lrwxrwxrwx     	6      	root   	root   	0      	1474921219     	'mylink2' -> 'mylink'
-
-#TODO:
-# TODO: Add error handling
-# TODO: resolve symlinks
+#FIXME: compression works, but sometimes leave the file intact
+FILESIZE=$(stat -c%s "$CSVFILE")
+#log "*** Compressing $CSVFILE ($FILESIZE bytes) ..."
+#gzip $CSFILE
+#
+#FILESIZE=$(stat -c%s "$CSVFILE.gz")
+#log "*** Compressed $CSVFILE.gz ($FILESIZE bytes)."
 
